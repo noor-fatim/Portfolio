@@ -1,134 +1,78 @@
-import React from "react";
-import project from "../assets/images/project.png";
+import { motion } from "framer-motion";
 import { FaArrowUpRightFromSquare } from "react-icons/fa6";
-import { motion, useAnimation } from "framer-motion";
-import todoImg from "../assets/images/todo.png";
 
-function ProjectsSection() {
+const PROJECTS = [
+  {
+    index: "01",
+    title: "ChatApp",
+    body: "A real-time chat application with a simple, easy-to-use interface. Responsive and fast, so conversations stay smooth on any device.",
+    tags: ["React", "Realtime", "Responsive"],
+    href: "https://app-my-chat.netlify.app/",
+  },
+  {
+    index: "02",
+    title: "To-Do App",
+    body: "A Firebase-backed task manager where users create, edit and delete tasks with real-time storage — built to keep people organised and productive.",
+    tags: ["React", "Firebase", "CRUD"],
+    href: "https://app-todo-add.netlify.app/",
+  },
+];
+
+export default function ProjectsSection() {
   return (
-    <section
-      id="projects"
-      className="hero-section experience-section projects-section"
-    >
+    <section id="projects" className="pf-section">
       <div className="container">
-        <motion.div
-          initial={{ y: -50, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ once: false, amount: 0.1 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-        >
-          <h2>
-            My <span className="lg-bold">Projects</span>
-          </h2>
-        </motion.div>
-        <div className="projects-wrapper">
-          <div className="project-div">
-            <div className="row align-items-center mb-5">
-              <div className="col-md-6">
-                <div className="img-section">
-                  <motion.div
-                    initial={{ y: -50, opacity: 0 }}
-                    whileInView={{ y: 0, opacity: 1 }}
-                    viewport={{ once: false, amount: 0.1 }}
-                    transition={{ duration: 0.8, ease: "easeOut" }}
-                  >
-                    <img src={project} alt="Project" />
-                  </motion.div>
-                </div>
-              </div>
-              <div className="col-md-6">
-                <div className="text-section">
-                  <motion.div
-                    initial={{ y: -50, opacity: 0 }}
-                    whileInView={{ y: 0, opacity: 1 }}
-                    viewport={{ once: false, amount: 0.1 }}
-                    transition={{ duration: 0.8, ease: "easeOut" }}
-                  >
-                    <span>01</span>
-                  </motion.div>
-                  <motion.div
-                    initial={{ y: -50, opacity: 0 }}
-                    whileInView={{ y: 0, opacity: 1 }}
-                    viewport={{ once: false, amount: 0.1 }}
-                    transition={{ duration: 0.8, ease: "easeOut" }}
-                  >
-                    <h3>ChatApp</h3>
-                  </motion.div>
-                  <motion.div
-                    initial={{ y: -50, opacity: 0 }}
-                    whileInView={{ y: 0, opacity: 1 }}
-                    viewport={{ once: false, amount: 0.1 }}
-                    transition={{ duration: 0.8, ease: "easeOut" }}
-                  >
-                    <p>
-                      I built a chat app where users can send messages in
-                      real-time through a simple and easy-to-use interface. The
-                      app is responsive and fast, making it smooth for users to
-                      connect and chat seamlessly.
-                    </p>
-                    <a href="https://app-my-chat.netlify.app/">
-                      <FaArrowUpRightFromSquare />
-                    </a>
-                  </motion.div>
-                </div>
-              </div>
-            </div>
-
-            <div className="row align-items-center mt-5">
-              <div className="col-md-6">
-                <div className="text-section">
-                  <motion.div
-                    initial={{ y: -50, opacity: 0 }}
-                    whileInView={{ y: 0, opacity: 1 }}
-                    viewport={{ once: false, amount: 0.1 }}
-                    transition={{ duration: 0.8, ease: "easeOut" }}
-                  >
-                    <span>02</span>
-                  </motion.div>
-                  <motion.div
-                    initial={{ y: -50, opacity: 0 }}
-                    whileInView={{ y: 0, opacity: 1 }}
-                    viewport={{ once: false, amount: 0.1 }}
-                    transition={{ duration: 0.8, ease: "easeOut" }}
-                  >
-                    <h3>To-Do App (Firebase-Based)</h3>
-                  </motion.div>
-                  <motion.div
-                    initial={{ y: -50, opacity: 0 }}
-                    whileInView={{ y: 0, opacity: 1 }}
-                    viewport={{ once: false, amount: 0.1 }}
-                    transition={{ duration: 0.8, ease: "easeOut" }}
-                  >
-                    <p>
-                      I developed a to-do app that allows users to create, edit,
-                      and delete tasks with real-time data storage using
-                      Firebase. The app is responsive and user-friendly, helping
-                      users stay organized and productive.
-                    </p>
-                    <a href="https://app-todo-add.netlify.app/">
-                      <FaArrowUpRightFromSquare />
-                    </a>
-                  </motion.div>
-                </div>
-              </div>
-              <div className="col-md-6">
-                <div className="img-section">
-                  <motion.div
-                    initial={{ y: -50, opacity: 0 }}
-                    whileInView={{ y: 0, opacity: 1 }}
-                    viewport={{ once: false, amount: 0.1 }}
-                    transition={{ duration: 0.8, ease: "easeOut" }}
-                  >
-                    <img src={todoImg} alt="Project" />
-                  </motion.div>
-                </div>
-              </div>
-            </div>
+        <div className="row align-items-end g-4 mb-4">
+          <div className="col-lg-7">
+            <p className="pf-eyebrow">Selected Work</p>
+            <h2 className="pf-title mb-0">
+              Projects I&apos;ve <em>built</em>
+            </h2>
           </div>
         </div>
+
+        {PROJECTS.map((p, i) => (
+          <motion.div
+            key={p.title}
+            initial={{ y: 30, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.65, delay: i * 0.06 }}
+            className="pf-project"
+          >
+            <div className="row align-items-center g-4 g-lg-5">
+              <div className={`col-lg-6 ${i % 2 ? "order-lg-2" : ""}`}>
+                <a
+                  className="pf-project__shot d-block"
+                  href={p.href}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <span>{p.title}</span>
+                </a>
+              </div>
+              <div className={`col-lg-5 ${i % 2 ? "order-lg-1" : "offset-lg-1"}`}>
+                <div className="pf-project__index">{p.index}</div>
+                <h3>{p.title}</h3>
+                <p>{p.body}</p>
+                <div className="pf-project__tags">
+                  {p.tags.map((t) => (
+                    <span key={t}>{t}</span>
+                  ))}
+                </div>
+                <a
+                  className="pf-btn pf-btn--ghost"
+                  href={p.href}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Live site <FaArrowUpRightFromSquare />
+                </a>
+              </div>
+            </div>
+          </motion.div>
+        ))}
       </div>
     </section>
   );
 }
-
-export default ProjectsSection;

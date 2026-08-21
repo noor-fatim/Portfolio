@@ -1,64 +1,59 @@
-import React from "react";
+import { useState } from "react";
+import { IoMdMenu, IoMdClose } from "react-icons/io";
 import { MdOutlineFileDownload } from "react-icons/md";
-import { IoMdMenu } from "react-icons/io";
-import Dropdown from "react-bootstrap/Dropdown";
 
-function Navbar() {
-  const handlePdf = () => {
-    const pdfUrl = "/Noor Fatima_cv.pdf";
-    console.log("PDF URL:", pdfUrl);
-    window.open(pdfUrl, "_blank");
-  };
+const LINKS = [
+  { href: "#about", label: "About" },
+  { href: "#skills", label: "Skills" },
+  { href: "#projects", label: "Projects" },
+  { href: "#contact", label: "Contact" },
+];
+
+export default function Navbar() {
+  const [open, setOpen] = useState(false);
+
+  const openResume = () => window.open("/Noor Fatima_cv.pdf", "_blank");
 
   return (
-    <div className="container-fluid">
-      <nav>
-        <div className="row">
-          <div className="col-md-4 col-6">
-            <h1>Noor Fatima</h1>
-          </div>
-          <div className="col-md-8 col-6">
-            <div className="tabs-wrapper">
-              <div className="left-section">
-                <a href="#about">About Me</a>
-                <a href="#skills">Skills</a>
-                <a href="#projects">Projects</a>
-                <a href="#contact">Contact Me</a>
-              </div>
-              <div>
-                <button
-                  onClick={handlePdf}
-                  className="download-btn"
-                  rel="noreferrer"
-                >
-                  Resume
-                  <MdOutlineFileDownload />
-                </button>
-              </div>
-            </div>
+    <header className="pf-nav">
+      <div className="container">
+        <div className="pf-nav__inner">
+          <a href="#top" className="pf-brand">
+            Noor<span>.</span>Fatima
+          </a>
 
-            <div className="small-screen-menu">
-              <Dropdown>
-                <Dropdown.Toggle variant="success" id="dropdown-basic">
-                  <IoMdMenu />
-                </Dropdown.Toggle>
+          <nav className="pf-nav__links">
+            {LINKS.map((l) => (
+              <a key={l.href} href={l.href}>
+                {l.label}
+              </a>
+            ))}
+          </nav>
 
-                <Dropdown.Menu>
-                  <Dropdown.Item href="#about">About Me</Dropdown.Item>
-                  <Dropdown.Item href="#skills">Skills</Dropdown.Item>
-                  <Dropdown.Item href="#projects">Projects</Dropdown.Item>
-                  <Dropdown.Item href="#contact">Contact Me</Dropdown.Item>
-                  <Dropdown.Item onClick={handlePdf}>
-                    Resume <MdOutlineFileDownload />
-                  </Dropdown.Item>
-                </Dropdown.Menu>
-              </Dropdown>
-            </div>
-          </div>
+          <button className="pf-btn pf-nav__cta" onClick={openResume}>
+            Resume <MdOutlineFileDownload />
+          </button>
+
+          <button
+            className="pf-burger"
+            aria-label="Toggle menu"
+            onClick={() => setOpen((v) => !v)}
+          >
+            {open ? <IoMdClose /> : <IoMdMenu />}
+          </button>
         </div>
-      </nav>
-    </div>
+
+        {open && (
+          <div className="pf-mobile-menu">
+            {LINKS.map((l) => (
+              <a key={l.href} href={l.href} onClick={() => setOpen(false)}>
+                {l.label}
+              </a>
+            ))}
+            <button onClick={openResume}>Resume</button>
+          </div>
+        )}
+      </div>
+    </header>
   );
 }
-
-export default Navbar;

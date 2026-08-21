@@ -1,128 +1,64 @@
-import React from "react";
-import jsImg from "../assets/images/js.png";
-import reactImg from "../assets/images/react-img.png";
-import saasImg from "../assets/images/saas-img.png";
-import tailwindImg from "../assets/images/tailwind-img.png";
-import gitImg from "../assets/images/git.png";
-import bootstrapImg from "../assets/images/bootstrapImg.png";
-import nodeImg from "../assets/images/nodedotjs.svg";
-import expressImg from "../assets/images/express.svg";
-import mongodbImg from "../assets/images/mongodb.svg";
-import { motion, useAnimation } from "framer-motion";
+import { motion } from "framer-motion";
+import {
+  SiJavascript,
+  SiReact,
+  SiBootstrap,
+  SiSass,
+  SiTailwindcss,
+  SiGit,
+  SiNodedotjs,
+  SiExpress,
+  SiMongodb,
+} from "react-icons/si";
 
+const SKILLS = [
+  { icon: SiJavascript, label: "JavaScript" },
+  { icon: SiReact, label: "React" },
+  { icon: SiBootstrap, label: "Bootstrap" },
+  { icon: SiSass, label: "Sass / SCSS" },
+  { icon: SiTailwindcss, label: "Tailwind CSS" },
+  { icon: SiGit, label: "Git" },
+  { icon: SiNodedotjs, label: "Node.js" },
+  { icon: SiExpress, label: "Express.js" },
+  { icon: SiMongodb, label: "MongoDB" },
+];
 
-function SkillSection() {
-
+export default function SkillSection() {
   return (
-    <section id="skills" className="hero-section skill-section">
+    <section id="skills" className="pf-section pf-section--light">
       <div className="container">
-        <h2>
-          My <span className="lg-bold">SKills</span>
-        </h2>
-        <div className="skill-wrapper">
-          <motion.div
-            initial={{ y: -50, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            viewport={{ once: false, amount: 0.1 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            <div className="skill-card">
-              <img src={jsImg} alt="JavaScript" />
-              <h5>Javascript</h5>
+        <div className="row align-items-end g-4 mb-5">
+          <div className="col-lg-6">
+            <p className="pf-eyebrow">Toolkit</p>
+            <h2 className="pf-title mb-0">
+              Technologies I <em>work with</em>
+            </h2>
+          </div>
+          <div className="col-lg-5 offset-lg-1">
+            <p>
+              A stack chosen for speed and maintainability — from crafting interfaces
+              to shipping the API behind them.
+            </p>
+          </div>
+        </div>
+
+        <div className="row g-3 g-md-4">
+          {SKILLS.map(({ icon: Icon, label }, i) => (
+            <div className="col-6 col-md-4 col-lg-3" key={label}>
+              <motion.div
+                initial={{ y: 20, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.5, delay: i * 0.05 }}
+                className="pf-skill-card"
+              >
+                <Icon />
+                <h5>{label}</h5>
+              </motion.div>
             </div>
-          </motion.div>
-          <motion.div
-            initial={{ y: -50, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            viewport={{ once: false, amount: 0.1 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            <div className="skill-card">
-              <img src={reactImg} alt="React" />
-              <h5>React</h5>
-            </div>
-          </motion.div>
-          <motion.div
-            initial={{ y: -50, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            viewport={{ once: false, amount: 0.1 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            <div className="skill-card">
-              <img src={bootstrapImg} alt="Bootstrap" />
-              <h5>Bootstrap</h5>
-            </div>
-          </motion.div>
-          <motion.div
-            initial={{ y: -50, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            viewport={{ once: false, amount: 0.1 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            <div className="skill-card">
-              <img src={saasImg} alt="Sass" />
-              <h5>Sass/Scss</h5>
-            </div>
-          </motion.div>
-          <motion.div
-            initial={{ y: -50, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            viewport={{ once: false, amount: 0.1 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            <div className="skill-card">
-              <img src={tailwindImg} alt="Tailwind CSS" />
-              <h5>Tailwind CSS</h5>
-            </div>
-          </motion.div>
-          <motion.div
-            initial={{ y: -50, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            viewport={{ once: false, amount: 0.1 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            <div className="skill-card">
-              <img src={gitImg} alt="Git" />
-              <h5>Git</h5>
-            </div>
-          </motion.div>
-          <motion.div
-            initial={{ y: -50, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            viewport={{ once: false, amount: 0.1 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            <div className="skill-card">
-              <img src={nodeImg} alt="Node.js" />
-              <h5>Node.js</h5>
-            </div>
-          </motion.div>
-          <motion.div
-            initial={{ y: -50, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            viewport={{ once: false, amount: 0.1 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            <div className="skill-card">
-              <img src={expressImg} alt="Express.js" />
-              <h5>Express.js</h5>
-            </div>
-          </motion.div>
-          <motion.div
-            initial={{ y: -50, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            viewport={{ once: false, amount: 0.1 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            <div className="skill-card">
-              <img src={mongodbImg} alt="MongoDB" />
-              <h5>MongoDB</h5>
-            </div>
-          </motion.div>
+          ))}
         </div>
       </div>
     </section>
   );
 }
-
-export default SkillSection;

@@ -12,7 +12,7 @@ import FooterSection from './components/FooterSection';
 
 function App() {
   return (
-    <div>
+    <div className="pf">
       <Navbar/>
       <HeroSection/>
       <SkillSection/>

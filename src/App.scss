@@ -491,6 +491,12 @@ $font-body: "Work Sans", system-ui, sans-serif;
       letter-spacing: 0.02em;
     }
 
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
     &:hover {
       border-color: rgba($gold, 0.6);
     }

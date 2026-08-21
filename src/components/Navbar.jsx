@@ -12,7 +12,7 @@ const LINKS = [
 export default function Navbar() {
   const [open, setOpen] = useState(false);
 
-  const openResume = () => window.open("/Noor Fatima_cv.pdf", "_blank");
+  const openResume = () => window.open("/Noor_Fatima_MERN_CV.pdf", "_blank");
 
   return (
     <header className="pf-nav">

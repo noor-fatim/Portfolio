@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
 import { FaArrowUpRightFromSquare } from "react-icons/fa6";
+import projectImg from "../assets/images/project.png";
+import todoImg from "../assets/images/todo.png";
 
 const PROJECTS = [
   {
@@ -8,6 +10,7 @@ const PROJECTS = [
     body: "A real-time chat application with a simple, easy-to-use interface. Responsive and fast, so conversations stay smooth on any device.",
     tags: ["React", "Realtime", "Responsive"],
     href: "https://app-my-chat.netlify.app/",
+    img: projectImg,
   },
   {
     index: "02",
@@ -15,6 +18,7 @@ const PROJECTS = [
     body: "A Firebase-backed task manager where users create, edit and delete tasks with real-time storage — built to keep people organised and productive.",
     tags: ["React", "Firebase", "CRUD"],
     href: "https://app-todo-add.netlify.app/",
+    img: todoImg,
   },
 ];
 
@@ -48,7 +52,7 @@ export default function ProjectsSection() {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <span>{p.title}</span>
+                  <img src={p.img} alt={p.title} loading="lazy" />
                 </a>
               </div>
               <div className={`col-lg-5 ${i % 2 ? "order-lg-1" : "offset-lg-1"}`}>

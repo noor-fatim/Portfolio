@@ -19,7 +19,7 @@ function HeroSection() {
               >
                 <h2>
                   Hello I'm <span className="lg-bold">Noor Fatima</span>.<br />
-                  <span className="lg-bold">Frontend</span>{" "}
+                  <span className="lg-bold">MERN Stack</span>{" "}
                   <span className="border-text">Developer</span>
                 </h2>
               </motion.div>
@@ -30,10 +30,12 @@ function HeroSection() {
                 transition={{ duration: 0.8, ease: "easeOut" }}
               >
                 <p>
-                  I’m a passionate Frontend Developer who enjoys building clean,
-                  responsive, and user-friendly web interfaces. I focus on
-                  writing efficient code and creating smooth user experiences
-                  using modern web technologies.
+                  MERN Stack Developer with experience building responsive,
+                  full-stack web applications using MongoDB, Express.js, React,
+                  and Node.js. Interested in creating efficient and
+                  user-friendly interfaces, building RESTful APIs, and
+                  contributing to real-world projects while improving technical
+                  skills.
                 </p>
               </motion.div>
               <div className="icon-wrapper">

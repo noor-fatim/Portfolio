@@ -5,6 +5,9 @@ import saasImg from "../assets/images/saas-img.png";
 import tailwindImg from "../assets/images/tailwind-img.png";
 import gitImg from "../assets/images/git.png";
 import bootstrapImg from "../assets/images/bootstrapImg.png";
+import nodeImg from "../assets/images/nodedotjs.svg";
+import expressImg from "../assets/images/express.svg";
+import mongodbImg from "../assets/images/mongodb.svg";
 import { motion, useAnimation } from "framer-motion";
 
 
@@ -81,6 +84,39 @@ function SkillSection() {
             <div className="skill-card">
               <img src={gitImg} alt="Git" />
               <h5>Git</h5>
+            </div>
+          </motion.div>
+          <motion.div
+            initial={{ y: -50, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: false, amount: 0.1 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
+            <div className="skill-card">
+              <img src={nodeImg} alt="Node.js" />
+              <h5>Node.js</h5>
+            </div>
+          </motion.div>
+          <motion.div
+            initial={{ y: -50, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: false, amount: 0.1 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
+            <div className="skill-card">
+              <img src={expressImg} alt="Express.js" />
+              <h5>Express.js</h5>
+            </div>
+          </motion.div>
+          <motion.div
+            initial={{ y: -50, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: false, amount: 0.1 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
+            <div className="skill-card">
+              <img src={mongodbImg} alt="MongoDB" />
+              <h5>MongoDB</h5>
             </div>
           </motion.div>
         </div>

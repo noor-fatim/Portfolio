@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 const ROLES = [
   {
     title: "Frontend Developer at GMZ",
-    period: "Nov 1st — Present",
+    period: "Nov 1st, 2024 — Present",
     body: "Frontend Developer at Genius Mind Zone, creating modern, responsive and easy-to-use websites. Experienced in turning ideas into reliable, high-quality web experiences with a focus on clean, efficient and maintainable code.",
   },
 ];
